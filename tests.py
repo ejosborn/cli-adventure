@@ -73,6 +73,20 @@ class TestCharacterCreation(unittest.TestCase):
             {"Gold": 50, "Potions": ["Healing Potion"], "Items": []},
         )
 
+    def test_invalid_character(self):
+        """Test creating an invalid character.
+
+        This test checks if a Character object is not created successfully
+        when creating a character of an invalid class.
+
+        """
+        # Creating invalid character
+        name = "Lord Voldemort"
+        _class_ = "Demon"
+
+        with self.assertRaises(ValueError):
+            character = Character(name, _class_)
+
 
 if __name__ == "__main__":
     unittest.main()
