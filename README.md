@@ -12,9 +12,16 @@
 
 ### Design
 
+If you want to see how I thought about designing the program, checkout my eraser.io file:
 https://app.eraser.io/workspace/klH0YWyNSsSIUIseBvtc?origin=share
 
 ### Usage
+
+To run the unit tests, navigate to the folder that tests.py is in, then
+
+```python
+python3 tests.py
+```
 
 ## Contributing
 
