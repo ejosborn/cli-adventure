@@ -51,6 +51,28 @@ class TestCharacterCreation(unittest.TestCase):
             {"Gold": 50, "Potions": ["Healing Potion"], "Items": []},
         )
 
+    def test_sorcerer_character_creation(self):
+        """Test creating a sorcerer character.
+
+        This test checks if a Character object is created successfully
+        when creating a character of the 'sorcerer' class.
+
+        """
+        # Creating ranger character
+        name = "Gandolf the Wize"
+        _class_ = "sorcerer"
+        character = Character(name, _class_)
+
+        # Asserting the the character is created with correct attributes
+        self.assertEqual(character.name, name)
+        self.assertEqual(character._class_, _class_)
+        self.assertEqual(character.armor, "Common Robe")
+        self.assertEqual(character.weapon, "Common Staff")
+        self.assertEqual(
+            character.inventory,
+            {"Gold": 50, "Potions": ["Healing Potion"], "Items": []},
+        )
+
 
 if __name__ == "__main__":
     unittest.main()
