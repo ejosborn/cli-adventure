@@ -1,7 +1,7 @@
 """Unit tests for CLI adventures"""
 
 import unittest
-from character import *
+from character import Character
 
 
 class TestCharacterCreation(unittest.TestCase):
@@ -21,6 +21,7 @@ class TestCharacterCreation(unittest.TestCase):
 
         # Asserting the the character is created with correct attributes
         self.assertEqual(character.name, name)
+        self.assertEqual(character.level, 1)
         self.assertEqual(character._class_, _class_)
         self.assertEqual(character.armor, "Common Metal Armor")
         self.assertEqual(character.weapon, "Common Great Sword")
@@ -36,13 +37,14 @@ class TestCharacterCreation(unittest.TestCase):
         when creating a character of the 'ranger' class.
 
         """
-        # Creating melee character
+        # Creating ranger character
         name = "Robin Hood"
         _class_ = "ranger"
         character = Character(name, _class_)
 
         # Asserting the the character is created with correct attributes
         self.assertEqual(character.name, name)
+        self.assertEqual(character.level, 1)
         self.assertEqual(character._class_, _class_)
         self.assertEqual(character.armor, "Common Leather Armor")
         self.assertEqual(character.weapon, "Common Bow")
@@ -58,13 +60,14 @@ class TestCharacterCreation(unittest.TestCase):
         when creating a character of the 'sorcerer' class.
 
         """
-        # Creating ranger character
+        # Creating sorcerer character
         name = "Gandolf the Wize"
         _class_ = "sorcerer"
         character = Character(name, _class_)
 
         # Asserting the the character is created with correct attributes
         self.assertEqual(character.name, name)
+        self.assertEqual(character.level, 1)
         self.assertEqual(character._class_, _class_)
         self.assertEqual(character.armor, "Common Robe")
         self.assertEqual(character.weapon, "Common Staff")
