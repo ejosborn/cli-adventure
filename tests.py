@@ -1,4 +1,9 @@
-"""Unit tests for CLI adventures"""
+"""Unit tests for CLI adventures.
+
+This module contains unit tests for the functionality of the Character class in
+the CLI adventures game.
+
+"""
 
 import unittest
 from character import Character
@@ -15,7 +20,7 @@ class TestCharacterCreation(unittest.TestCase):
 
         """
         # Creating melee character
-        name = "Hulk"
+        name = "Hulk the Strong"
         _class_ = "melee"
         character = Character(name, _class_)
 
@@ -38,7 +43,7 @@ class TestCharacterCreation(unittest.TestCase):
 
         """
         # Creating ranger character
-        name = "Robin Hood"
+        name = "Robin Hood the Accurate"
         _class_ = "ranger"
         character = Character(name, _class_)
 
@@ -61,7 +66,7 @@ class TestCharacterCreation(unittest.TestCase):
 
         """
         # Creating sorcerer character
-        name = "Gandolf the Wize"
+        name = "Gandalf the Wise"
         _class_ = "sorcerer"
         character = Character(name, _class_)
 
@@ -89,6 +94,36 @@ class TestCharacterCreation(unittest.TestCase):
 
         with self.assertRaises(ValueError):
             character = Character(name, _class_)
+
+
+class testExpAndLevel(unittest.TestCase):
+    """
+    Testing level up method.
+    """
+
+    def test_exp_up(self):
+        # Creating character
+        name = "Captain America"
+        _class_ = "melee"
+        character = Character(name, _class_)
+
+        #
+        character.add_exp_up(100)
+        self.assertEqual(character.exp, 100)
+
+    def test_lvl_up(self):
+        # Creating character
+        name = "Captain America"
+        _class_ = "melee"
+        character = Character(name, _class_)
+
+        # adding exp and lvl
+        character.add_exp_up(200)
+        total_lvl_up = character.exp / 100
+        character.add_lvl(total_lvl_up)
+
+        # asserting Equals
+        self.assertEqual(character.level, 3)
 
 
 if __name__ == "__main__":
