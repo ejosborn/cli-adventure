@@ -66,7 +66,22 @@ class Character:
             self (Character): The Character object.
             new_exp (int): The experience points to be added.
 
+        Returns:
+            int: The updated experience points of the Character.
         """
         self.exp += new_exp
-
         return self.exp
+
+    def add_lvl(self, lvl_up):
+        """
+        Increase the level of the Character by the given amount.
+
+        Args:
+            self (Character): The Character object.
+            lvl_up (int): The amount of levels the Character gains.
+
+        Returns:
+            int: The updated level of the Character.
+        """
+        self.level += lvl_up
+        return self.level
