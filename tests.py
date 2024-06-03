@@ -1,8 +1,8 @@
-"""Unit tests for CLI adventures.
+"""
+Unit tests for CLI adventures.
 
-This module contains unit tests for the functionality of the Character class in
+This module contains unit tests for the functionality of the Character and Enemy classes in
 the CLI adventures game.
-
 """
 
 import unittest
@@ -11,21 +11,22 @@ from enemy import Enemy
 
 
 class TestCharacterCreation(unittest.TestCase):
-    """Test cases for character creation."""
+    """
+    Test cases for character creation.
+    """
 
     def test_melee_character_creation(self):
-        """Test creating a melee character.
+        """
+        Test creating a melee character.
 
         This test checks if a Character object is created successfully
         when creating a character of the 'melee' class.
-
         """
-        # Creating melee character
         name = "Hulk the Strong"
         _class_ = "melee"
         character = Character(name, _class_)
 
-        # Asserting the the character is created with correct attributes
+        # Asserting that the character is created with correct attributes
         self.assertEqual(character.name, name)
         self.assertEqual(character.level, 1)
         self.assertEqual(character._class_, _class_)
@@ -37,18 +38,17 @@ class TestCharacterCreation(unittest.TestCase):
         )
 
     def test_ranger_character_creation(self):
-        """Test creating a ranger character.
+        """
+        Test creating a ranger character.
 
         This test checks if a Character object is created successfully
         when creating a character of the 'ranger' class.
-
         """
-        # Creating ranger character
         name = "Robin Hood the Accurate"
         _class_ = "ranger"
         character = Character(name, _class_)
 
-        # Asserting the the character is created with correct attributes
+        # Asserting that the character is created with correct attributes
         self.assertEqual(character.name, name)
         self.assertEqual(character.level, 1)
         self.assertEqual(character._class_, _class_)
@@ -60,18 +60,17 @@ class TestCharacterCreation(unittest.TestCase):
         )
 
     def test_sorcerer_character_creation(self):
-        """Test creating a sorcerer character.
+        """
+        Test creating a sorcerer character.
 
         This test checks if a Character object is created successfully
         when creating a character of the 'sorcerer' class.
-
         """
-        # Creating sorcerer character
         name = "Gandalf the Wise"
         _class_ = "sorcerer"
         character = Character(name, _class_)
 
-        # Asserting the the character is created with correct attributes
+        # Asserting that the character is created with correct attributes
         self.assertEqual(character.name, name)
         self.assertEqual(character.level, 1)
         self.assertEqual(character._class_, _class_)
@@ -83,13 +82,12 @@ class TestCharacterCreation(unittest.TestCase):
         )
 
     def test_invalid_character(self):
-        """Test creating an invalid character.
+        """
+        Test creating an invalid character.
 
         This test checks if a Character object is not created successfully
         when creating a character of an invalid class.
-
         """
-        # Creating invalid character
         name = "Lord Voldemort"
         _class_ = "Demon"
 
@@ -97,42 +95,55 @@ class TestCharacterCreation(unittest.TestCase):
             character = Character(name, _class_)
 
 
-class testCharacterExpAndLevel(unittest.TestCase):
+class TestCharacterExpAndLevel(unittest.TestCase):
     """
-    Testing level up method.
+    Test cases for adding experience and leveling up a character.
     """
 
     def test_exp_up(self):
-        # Creating character
+        """
+        Test adding experience to a character.
+
+        This test checks if a Character object successfully gains experience points.
+        """
         name = "Captain America"
         _class_ = "melee"
         character = Character(name, _class_)
 
-        #
+        # adding experience to the character
         character.add_exp_up(100)
         self.assertEqual(character.exp, 100)
 
     def test_lvl_up(self):
-        # Creating character
+        """
+        Test leveling up a character.
+
+        This test checks if a Character object successfully levels up after gaining
+        experience points.
+        """
         name = "Captain America"
         _class_ = "melee"
         character = Character(name, _class_)
 
-        # adding exp and lvl
         character.add_exp_up(200)
-        total_lvl_up = character.exp / 100
+        total_lvl_up = character.exp // 100
         character.add_lvl(total_lvl_up)
 
-        # asserting Equals
         self.assertEqual(character.level, 3)
 
 
-class testEnemyCreation(unittest.TestCase):
+class TestEnemyCreation(unittest.TestCase):
     """
     Test cases for creating enemies.
     """
 
     def test_melee_enemy_creation(self):
+        """
+        Test creating a melee enemy.
+
+        This test checks if an Enemy object is created successfully
+        when creating an enemy of the 'melee' class.
+        """
         name = "Hercules the Berserk"
         _class_ = "melee"
 
@@ -143,6 +154,12 @@ class testEnemyCreation(unittest.TestCase):
         self.assertEqual(enemy._class_, _class_)
 
     def test_ranger_enemy_creation(self):
+        """
+        Test creating a ranger enemy.
+
+        This test checks if an Enemy object is created successfully
+        when creating an enemy of the 'ranger' class.
+        """
         name = "Zephyr the Accurate"
         _class_ = "ranger"
 
@@ -153,6 +170,12 @@ class testEnemyCreation(unittest.TestCase):
         self.assertEqual(enemy._class_, _class_)
 
     def test_sorcerer_enemy_creation(self):
+        """
+        Test creating a sorcerer enemy.
+
+        This test checks if an Enemy object is created successfully
+        when creating an enemy of the 'sorcerer' class.
+        """
         name = "Molthrenar the Evil"
         _class_ = "sorcerer"
 
