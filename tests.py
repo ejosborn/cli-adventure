@@ -7,6 +7,7 @@ the CLI adventures game.
 
 import unittest
 from character import Character
+from enemy import Enemy
 
 
 class TestCharacterCreation(unittest.TestCase):
@@ -96,7 +97,7 @@ class TestCharacterCreation(unittest.TestCase):
             character = Character(name, _class_)
 
 
-class testExpAndLevel(unittest.TestCase):
+class testCharacterExpAndLevel(unittest.TestCase):
     """
     Testing level up method.
     """
@@ -124,6 +125,42 @@ class testExpAndLevel(unittest.TestCase):
 
         # asserting Equals
         self.assertEqual(character.level, 3)
+
+
+class testEnemyCreation(unittest.TestCase):
+    """
+    Test cases for creating enemies.
+    """
+
+    def test_melee_enemy_creation(self):
+        name = "Hercules the Berserk"
+        _class_ = "melee"
+
+        enemy = Enemy(name, _class_)
+
+        self.assertEqual(enemy.name, name)
+        self.assertEqual(enemy.level, 1)
+        self.assertEqual(enemy._class_, _class_)
+
+    def test_ranger_enemy_creation(self):
+        name = "Zephyr the Accurate"
+        _class_ = "ranger"
+
+        enemy = Enemy(name, _class_)
+
+        self.assertEqual(enemy.name, name)
+        self.assertEqual(enemy.level, 1)
+        self.assertEqual(enemy._class_, _class_)
+
+    def test_sorcerer_enemy_creation(self):
+        name = "Molthrenar the Evil"
+        _class_ = "sorcerer"
+
+        enemy = Enemy(name, _class_)
+
+        self.assertEqual(enemy.name, name)
+        self.assertEqual(enemy.level, 1)
+        self.assertEqual(enemy._class_, _class_)
 
 
 if __name__ == "__main__":
